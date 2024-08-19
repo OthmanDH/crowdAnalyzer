@@ -1,6 +1,7 @@
 # Crowd Analyzer
 
 ![Project Logo](path/to/logo.png)
+Crowd Analyzer is a final-year project by Othman Dahlan and Abdulrahman Jaber, supervised by Dr. Mohammed Abdullah at Al-Zaytoonah University of Jordan.
 
 A FastAPI-based application for crowd analysis, image description, and face recognition. This project leverages YOLO, DeepFace, and GPT-4o to analyze video feeds, describe images, and recognize faces.
 
@@ -91,9 +92,6 @@ This application provides several API endpoints for performing various tasks suc
 3. **Face Recognition:**
    - Upload an image, insert the person into the database, and perform face recognition.
 
-## Contributing
-
-Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to contribute.
 
 ## License
 
