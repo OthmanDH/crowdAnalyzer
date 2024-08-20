@@ -1,6 +1,6 @@
 # Crowd Analyzer
 
-![Project Logo](path/to/logo.png)
+![Project Logo](person_images/CA.png)
 
 Crowd Analyzer is a final-year project by Othman Dahlan and Abdulrahman Jaber, supervised by Dr. Mohammed Abdullah at Al-Zaytoonah University of Jordan.
 
