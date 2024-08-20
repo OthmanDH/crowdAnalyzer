@@ -22,7 +22,6 @@ A FastAPI-based application for crowd analysis, image description, and face reco
   - [API Endpoints](#api-endpoints)
   - [Frontend Dashboard](#frontend-dashboard)
   - [Examples](#examples)
-  - [Contributing](#contributing)
   - [License](#license)
   - [References](#references)
   - [Datasets Used](#datasets-used)
