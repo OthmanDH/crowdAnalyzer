@@ -1,0 +1,95 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2a2b32 !important;
+    color: #e0e0e0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+.camera-container {
+    position: relative !important;
+    margin-bottom: 30px !important;
+}
+
+.camera-container iframe {
+    width: 100% !important;
+    height: 400px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+.camera-container .overlay {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    color: #fff !important;
+    padding: 10px 15px !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+}
+
+.form-container {
+    background-color: #3a3b42 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+h2 {
+    color: #d3d3d3 !important;  /* Light gray for titles */
+    margin-bottom: 15px !important;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100% !important;
+    padding: 10px !important;
+    margin-bottom: 15px !important;
+    border: 1px solid #555 !important;
+    border-radius: 4px !important;
+    font-size: 16px !important;
+    background-color: #2a2b32 !important;
+    color: #e0e0e0 !important;
+}
+
+button {
+    width: 100% !important;
+    background-color: #d3d3d3 !important;  /* Light gray for buttons */
+    color: #2a2b32 !important;
+    border: none !important;
+    padding: 10px !important;
+    font-size: 16px !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+button:hover {
+    background-color: #b0b0b0 !important;  /* Slightly darker gray on hover */
+}
+
+@media (min-width: 768px) {
+    .camera-container iframe {
+        height: 500px !important;
+    }
+
+    button {
+        width: auto !important;
+        display: inline-block !important;
+        padding: 10px 20px !important;
+    }
+
+    .form-container h2 {
+        font-size: 24px !important;
+    }
+}

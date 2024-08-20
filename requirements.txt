@@ -1,0 +1,11 @@
+fastapi
+tensorflow==2.15
+tf-keras
+uvicorn
+sqlalchemy
+opencv-python
+deepface
+requests
+ultralytics
+pydantic
+python-multipart

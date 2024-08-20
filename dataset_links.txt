@@ -1,0 +1,6 @@
+Datatset links: 
+https://www.kaggle.com/datasets/trainingdatapro/age-detection-human-faces-18-60-years?resource=download
+
+https://universe.roboflow.com/titulacin/person-detection-9a6mk
+
+http://vis-www.cs.umass.edu/fddb/
