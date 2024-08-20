@@ -1,17 +1,16 @@
 # Crowd Analyzer
 
-![Project Logo](person_images/CA.png)
+<p align="center">
+  <img src="person_images/CA.png" alt="Project Logo" width="200px">
+</p>
 
 Crowd Analyzer is a final-year project by Othman Dahlan and Abdulrahman Jaber, supervised by Dr. Mohammed Abdullah at Al-Zaytoonah University of Jordan.
 
 A FastAPI-based application for crowd analysis, image description, and face recognition. This project leverages YOLO, DeepFace, and GPT-4o to analyze video feeds, describe images, and recognize faces. The application also includes a frontend dashboard to visualize the data in real-time.
 
-
 ## How It Works
 
 ![How It Works](person_images/PFunctionality.png)
-
-
 
 ## Table of Contents
 
@@ -27,6 +26,8 @@ A FastAPI-based application for crowd analysis, image description, and face reco
   - [Examples](#examples)
   - [Contributing](#contributing)
   - [License](#license)
+  - [References](#references)
+  - [Datasets Used](#datasets-used)
 
 ## Features
 
@@ -124,3 +125,14 @@ Simply open the `index.html` file in your browser after starting the FastAPI ser
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## References
+
+- **DeepFace GitHub Repository**: [DeepFace](https://github.com/serengil/deepface)
+- **Ultralytics YOLOv8 GitHub Repository**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
+
+## Datasets Used
+
+- **Age Detection Human Faces 18-60 Years**: [Kaggle Dataset](https://www.kaggle.com/datasets/trainingdatapro/age-detection-human-faces-18-60-years?resource=download)
+- **Person Detection Dataset**: [Roboflow Dataset](https://universe.roboflow.com/titulacin/person-detection-9a6mk)
+- **Face Detection Data Set and Benchmark (FDDB)**: [UMass Dataset](http://vis-www.cs.umass.edu/fddb/)
