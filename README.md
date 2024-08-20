@@ -9,7 +9,7 @@ A FastAPI-based application for crowd analysis, image description, and face reco
 
 ## How It Works
 
-![How It Works](path/to/your/image.png)
+![How It Works](person_images/PFunctionality.png)
 
 
 
