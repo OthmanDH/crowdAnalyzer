@@ -107,7 +107,7 @@ The application includes several API endpoints that support key functionalities:
 ## Frontend Dashboard
 
 <p align="center">
-  <img src="person_images/frontend.png" alt="Project Logo" width="400px">
+  <img src="person_images/frontend.png" alt="Project Logo" width="700px">
 </p>
 
 
