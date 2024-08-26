@@ -1,0 +1,211 @@
+{
+	"info": {
+		"_postman_id": "9a5ec19c-9939-4561-a3fe-9783c445edcd",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32063038"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/crowd_analysis/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"video_path\": \"rtsp://172.20.10.12:8080/h264_pcm.sdp\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/crowd_analysis/"
+			},
+			"response": []
+		},
+		{
+			"name": "faceRecognition",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"name\": \"Alex\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/perform_face_recognition/"
+			},
+			"response": []
+		},
+		{
+			"name": "insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"name\": \"Alex\",\n     \"uuid\": \"Alex.png\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/insert_person/"
+			},
+			"response": []
+		},
+		{
+			"name": "/describe_image/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n     \"base64_image\": \"your_base64_image_string_here (prefereed jpeg to b64)\"\n   }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/describe_image/"
+			},
+			"response": []
+		},
+		{
+			"name": "ethnicity distribution",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"day\": \"2024-08-19\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/ethnicity_distribution/"
+			},
+			"response": []
+		},
+		{
+			"name": "emotion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"year\": 2024, \"month\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/emotion_distribution/"
+			},
+			"response": []
+		},
+		{
+			"name": "age distribution",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"day\": \"2024-08-19\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/age_distribution/\n"
+			},
+			"response": []
+		},
+		{
+			"name": "gender",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"year\": 2024\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/gender_distribution/\n"
+			},
+			"response": []
+		},
+		{
+			"name": "common person",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"year\": 2024, \"month\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/most_common_person/\n"
+			},
+			"response": []
+		},
+		{
+			"name": "density",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"year\": 2024, \"month\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/crowd_density/\n"
+			},
+			"response": []
+		},
+		{
+			"name": "density Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/export_db/\n"
+			},
+			"response": []
+		}
+	]
+}
