@@ -12,7 +12,7 @@ import requests
 from ultralytics import YOLO
 from deepface import DeepFace
 import csv
-
+from fastapi.middleware.cors import CORSMiddleware
 
 # please follow this quick guide when making requests
 # 1. crowd analysis
@@ -68,6 +68,16 @@ import csv
 # GET /export_db/
 
 app = FastAPI()
+#fixware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,  # Set to True if credentials are sent in requests
+    allow_methods=["*"],  # Allow all HTTP methods (adjust as needed)
+    allow_headers=["*"],  # Allow all headers (adjust as needed)
+)
+
+
 
 # SQLAlchemy setup
 Base = declarative_base()

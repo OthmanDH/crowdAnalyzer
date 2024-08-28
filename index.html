@@ -11,7 +11,7 @@
     <div class="container">
         <!-- Live Video Feed Section -->
         <div class="camera-container">
-            <iframe src="http://192.168.1.13:8080" frameborder="0" width="100%" height="100%"></iframe>
+            <iframe id="videoIframe" src="http://172.20.10.12:8080" frameborder="0" width="100%" height="100%"></iframe>
             <div class="overlay">CAMERA 1 - LIVE FEED</div>
         </div>
 
@@ -26,7 +26,10 @@
             <h2>Describe Image</h2>
             <input type="file" id="imageInput" accept="image/*">
             <button onclick="submitImage()">Submit Image</button>
-            
+
+            <!-- Section to display the image description -->
+            <div id="imageDescription" style="margin-top: 20px;"></div>
+
             <!-- Insert Person Form -->
             <h2>Insert Person</h2>
             <input type="text" id="personName" placeholder="Enter Person Name">
@@ -37,128 +40,73 @@
             <h2>Perform Face Recognition</h2>
             <input type="text" id="recognitionName" placeholder="Enter Name for Recognition">
             <button onclick="performFaceRecognition()">Perform Face Recognition</button>
+
+            <!-- Distribution Data Requests -->
+            <h1>Analysis</h1>
+
+            <!-- Emotion Distribution Form -->
+            <h3>Emotion Distribution</h3>
+            <input type="text" id="emotionYear" placeholder="Year (e.g., 2024)">
+            <input type="text" id="emotionMonth" placeholder="Month (e.g., 8)">
+            <input type="text" id="emotionDay" placeholder="Day (e.g., 2024-08-19)">
+            <button onclick="submitEmotionDistribution()">Get Emotion Distribution</button>
+            <pre id="emotionResult"></pre>
+            <canvas id="emotionChart"></canvas>
+
+            <!-- Age Distribution Form -->
+            <h3>Age Distribution</h3>
+            <input type="text" id="ageYear" placeholder="Year (e.g., 2024)">
+            <input type="text" id="ageMonth" placeholder="Month (e.g., 8)">
+            <input type="text" id="ageDay" placeholder="Day (e.g., 2024-08-19)">
+            <button onclick="submitAgeDistribution()">Get Age Distribution</button>
+            <pre id="ageResult"></pre>
+            <canvas id="ageChart"></canvas>
+
+            <!-- Gender Distribution Form -->
+            <h3>Gender Distribution</h3>
+            <input type="text" id="genderYear" placeholder="Year (e.g., 2024)">
+            <input type="text" id="genderMonth" placeholder="Month (e.g., 8)">
+            <input type="text" id="genderDay" placeholder="Day (e.g., 2024-08-19)">
+            <button onclick="submitGenderDistribution()">Get Gender Distribution</button>
+            <pre id="genderResult"></pre>
+            <canvas id="genderChart"></canvas>
+
+            <!-- Ethnicity Distribution Form -->
+            <h3>Ethnicity Distribution</h3>
+            <input type="text" id="ethnicityYear" placeholder="Year (e.g., 2024)">
+            <input type="text" id="ethnicityMonth" placeholder="Month (e.g., 8)">
+            <input type="text" id="ethnicityDay" placeholder="Day (e.g., 2024-08-19)">
+            <button onclick="submitEthnicityDistribution()">Get Ethnicity Distribution</button>
+            <pre id="ethnicityResult"></pre>
+            <canvas id="ethnicityChart"></canvas>
+
+            <!-- Most Common Person -->
+            <div class="result-container">
+                <h3>Most Common Person</h3>
+                <label for="commonPersonYear">Year:</label>
+                <input type="text" id="commonPersonYear" placeholder="2024">
+                <label for="commonPersonMonth">Month:</label>
+                <input type="text" id="commonPersonMonth" placeholder="8">
+                <label for="commonPersonDay">Day:</label>
+                <input type="text" id="commonPersonDay" placeholder="2024-08-19">
+                <button onclick="submitMostCommonPerson()">Submit</button>
+                <div id="commonPersonResult" class="result-text"></div>
+            </div>
+
+            <!-- Crowd Density Form -->
+            <div class="result-container">
+                <h3>Crowd Density</h3>
+                <label for="crowdDensityYear">Year:</label>
+                <input type="text" id="crowdDensityYear" placeholder="2024">
+                <label for="crowdDensityMonth">Month:</label>
+                <input type="text" id="crowdDensityMonth" placeholder="8">
+                <label for="crowdDensityDay">Day:</label>
+                <input type="text" id="crowdDensityDay" placeholder="2024-08-19">
+                <button onclick="submitCrowdDensity()">Submit</button>
+                <div id="crowdDensityResult" class="result-text"></div>
+            </div>
         </div>
     </div>
-
-    <!-- Matched People Statistics Section -->
-    <h1>Matched People Statistics</h1>
-    <canvas id="ageChart" width="400" height="200"></canvas>
-    <canvas id="genderChart" width="400" height="200"></canvas>
-    <canvas id="raceChart" width="400" height="200"></canvas>
-    <canvas id="emotionChart" width="400" height="200"></canvas>
-
-    <script>
-        // Fetch data from the FastAPI endpoint
-        async function fetchMatchedPeopleData() {
-            const response = await fetch('http://127.0.0.1:8000/get_matched_people/');
-            const data = await response.json();
-            return data.matched_people;
-        }
-
-        // Process and visualize the data
-        async function displayCharts() {
-            const matchedPeople = await fetchMatchedPeopleData();
-
-            // Extract data for the charts
-            const ages = matchedPeople.map(person => person.age);
-            const genders = matchedPeople.map(person => person.gender);
-            const races = matchedPeople.map(person => person.race);
-            const emotions = matchedPeople.map(person => person.emotion);
-
-            // Age Chart
-            new Chart(document.getElementById('ageChart'), {
-                type: 'bar',
-                data: {
-                    labels: ages,
-                    datasets: [{
-                        label: 'Age Distribution',
-                        data: ages,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: { beginAtZero: true }
-                    }
-                }
-            });
-
-            // Gender Chart
-            const genderCounts = genders.reduce((acc, gender) => {
-                acc[gender] = (acc[gender] || 0) + 1;
-                return acc;
-            }, {});
-            new Chart(document.getElementById('genderChart'), {
-                type: 'pie',
-                data: {
-                    labels: Object.keys(genderCounts),
-                    datasets: [{
-                        label: 'Gender Distribution',
-                        data: Object.values(genderCounts),
-                        backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)'],
-                        borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
-                        borderWidth: 1
-                    }]
-                }
-            });
-
-            // Race Chart
-            const raceCounts = races.reduce((acc, race) => {
-                acc[race] = (acc[race] || 0) + 1;
-                return acc;
-            }, {});
-            new Chart(document.getElementById('raceChart'), {
-                type: 'pie',
-                data: {
-                    labels: Object.keys(raceCounts),
-                    datasets: [{
-                        label: 'Race Distribution',
-                        data: Object.values(raceCounts),
-                        backgroundColor: [
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                }
-            });
-
-            // Emotion Chart
-            const emotionCounts = emotions.reduce((acc, emotion) => {
-                acc[emotion] = (acc[emotion] || 0) + 1;
-                return acc;
-            }, {});
-            new Chart(document.getElementById('emotionChart'), {
-                type: 'bar',
-                data: {
-                    labels: Object.keys(emotionCounts),
-                    datasets: [{
-                        label: 'Emotion Distribution',
-                        data: Object.values(emotionCounts),
-                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                        borderColor: 'rgba(153, 102, 255, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: { beginAtZero: true }
-                    }
-                }
-            });
-        }
-
-        // Display the charts on page load
-        displayCharts();
-    </script>
 
     <script src="scripts.js"></script>
 </body>
